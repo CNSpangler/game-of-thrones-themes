@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Character = ({ name, titles, aliases }) => {
   const aliasElements = aliases.map(alias => 
     <li key={alias.i}>alias</li>
-  )
+  );
   
   return (
     <>
@@ -17,7 +17,7 @@ const Character = ({ name, titles, aliases }) => {
 
 Character.propTypes = {
   name: PropTypes.string,
-  title: PropTypes.string,
+  titles: PropTypes.array,
   aliases: PropTypes.array
 };
 
