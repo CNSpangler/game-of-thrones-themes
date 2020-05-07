@@ -1,24 +1,37 @@
-import React from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { fetchCharacters } from '../../services/GoT-API';
+import { fetchCharacters } from '../../services/GoT-API.js';
 
 const GoTContext = createContext();
 
-const GoTProvider = ({ children }) => {
+// wrapper to provide state to child components
+export const GoTProvider = ({ children }) => {
   const [characters, setCharacters] = useState([]);
+  const [page, setPage] = useState(6);
 
   useEffect(() => {
-    fetchCharacters(6)
+    fetchCharacters(page)
       .then(results => setCharacters(results))
-  }, [characters])
+      .then(results => console.log('fetch?', results));
+  }, [page]);
   
   return (
-    <GoTContext.Provider value={{ characters }}>
+    <GoTContext.Provider value={{ characters, page }}>
       {children}
     </GoTContext.Provider>
   );
 };
 
-GoTProvider.propTypes = {};
+GoTProvider.propTypes = {
+  children: PropTypes.node
+};
 
-export default GoTProvider;
+export const useCharacters = () => {
+  const { characters } = useContext(GoTContext);
+  return characters;
+};
+
+export const useToggle = () => {
+  const { toggle } = useContext(GoTContext);
+  return toggle;
+};

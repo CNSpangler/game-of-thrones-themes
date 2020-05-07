@@ -1,9 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import Characters from '../components/App/Characters/Characters';
 
-const Home = () => {
-  
-  return ();
+const Home = ({ characters }) => {
+  return (
+    <>
+      {/* <Paging /> */}
+      <Characters characters={characters} />
+    </>
+  );
 };
 
 export default Home;
