@@ -13,9 +13,11 @@ export const GoTProvider = ({ children }) => {
     fetchCharacters(page)
       .then(results => setCharacters(results));
   }, [page]);
+  
+  const updatePage = (by) => setPage(prevPage => prevPage + by);
 
   return (
-    <GoTContext.Provider value={{ characters, page }}>
+    <GoTContext.Provider value={{ characters, page, updatePage }}>
       {children}
     </GoTContext.Provider>
   );
@@ -28,6 +30,16 @@ GoTProvider.propTypes = {
 export const useCharacters = () => {
   const { characters } = useContext(GoTContext);
   return characters;
+};
+
+export const useUpdatePage = () => {
+  const { updatePage } = useContext(GoTContext);
+  return updatePage;
+};
+
+export const usePage = () => {
+  const { page } = useContext(GoTContext);
+  return page;
 };
 
 // export const useToggle = () => {

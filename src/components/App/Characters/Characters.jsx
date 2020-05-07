@@ -1,9 +1,11 @@
 import React from 'react';
 import Character from '../Character/Character';
-import { useCharacters } from '../../../hooks/GoTProvider';
+import { useCharacters, useUpdatePage, usePage } from '../../../hooks/GoTProvider';
 
 const Characters = () => {
   const characters = useCharacters();
+  const page = usePage();
+  const updatePage = useUpdatePage();
 
   const characterElements = characters.map(character => (
     <li key={character.url}>
@@ -14,7 +16,7 @@ const Characters = () => {
   return (
     <>
       <button onClick={() => updatePage(-1)} disabled={page === 1}>&lt;</button>
-      <button onClick={() => updatePage(+1)} disabled={characters.length < 25}></button>
+      <button onClick={() => updatePage(+1)} >&gt;</button>
       <ul>
         {characterElements}
       </ul>
