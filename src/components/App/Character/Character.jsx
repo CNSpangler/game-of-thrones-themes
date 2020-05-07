@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Character = ({ name, culture, titles, aliases }) => {
+const Character = ({ name = 'unknown', culture = 'unknown', titles = ['none'], aliases = ['none'] }) => {
   const aliasElements = aliases.map((alias, i) => 
     <li key={i}>{alias}</li>
   );

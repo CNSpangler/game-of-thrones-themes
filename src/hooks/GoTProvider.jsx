@@ -8,6 +8,7 @@ const GoTContext = createContext();
 export const GoTProvider = ({ children }) => {
   const [characters, setCharacters] = useState([]);
   const [page, setPage] = useState(6);
+  const [fireIce, setFireIce] = useState('fire');
 
   useEffect(() => {
     fetchCharacters(page)
@@ -16,8 +17,14 @@ export const GoTProvider = ({ children }) => {
   
   const updatePage = (by) => setPage(prevPage => prevPage + by);
 
+  const toggle = ({ target }) => {
+    if(target.checked) setFireIce('fire');
+    if(!target.checked) setFireIce('ice');
+
+  };
+
   return (
-    <GoTContext.Provider value={{ characters, page, updatePage }}>
+    <GoTContext.Provider value={{ characters, page, updatePage, toggle }}>
       {children}
     </GoTContext.Provider>
   );
@@ -42,7 +49,12 @@ export const usePage = () => {
   return page;
 };
 
-// export const useToggle = () => {
-//   const { toggle } = useContext(GoTContext);
-//   return toggle;
-// };
+export const useFireIce = () => {
+  const fireIce = useContext(GoTContext);
+  return fireIce;
+};
+
+export const useToggle = () => {
+  const { toggle } = useContext(GoTContext);
+  return toggle;
+};

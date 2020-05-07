@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Character component renders Character 1`] = `
+<Fragment>
+  <h3>
+    Name: 
+    unknown
+  </h3>
+  <h4>
+    unknown
+  </h4>
+  <h4>
+    Title: 
+    none
+  </h4>
+  <ul>
+    Aliases: 
+    <li
+      key="0"
+    >
+      none
+    </li>
+  </ul>
+</Fragment>
+`;
