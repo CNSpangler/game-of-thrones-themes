@@ -11,10 +11,9 @@ export const GoTProvider = ({ children }) => {
 
   useEffect(() => {
     fetchCharacters(page)
-      .then(results => setCharacters(results))
-      .then(results => console.log('fetch?', results));
+      .then(results => setCharacters(results));
   }, [page]);
-  
+
   return (
     <GoTContext.Provider value={{ characters, page }}>
       {children}
@@ -31,7 +30,7 @@ export const useCharacters = () => {
   return characters;
 };
 
-export const useToggle = () => {
-  const { toggle } = useContext(GoTContext);
-  return toggle;
-};
+// export const useToggle = () => {
+//   const { toggle } = useContext(GoTContext);
+//   return toggle;
+// };

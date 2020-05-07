@@ -12,9 +12,13 @@ const Characters = () => {
   ));
 
   return (
-    <ul>
-      {characterElements}
-    </ul>
+    <>
+      <button onClick={() => updatePage(-1)} disabled={page === 1}>&lt;</button>
+      <button onClick={() => updatePage(+1)} disabled={characters.length < 25}></button>
+      <ul>
+        {characterElements}
+      </ul>
+    </>
   );
 };
 
