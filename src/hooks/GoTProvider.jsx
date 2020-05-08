@@ -24,7 +24,7 @@ export const GoTProvider = ({ children }) => {
   };
 
   return (
-    <GoTContext.Provider value={{ characters, page, updatePage, toggle }}>
+    <GoTContext.Provider value={{ characters, page, updatePage, toggle, fireIce }}>
       {children}
     </GoTContext.Provider>
   );
@@ -50,7 +50,7 @@ export const usePage = () => {
 };
 
 export const useFireIce = () => {
-  const fireIce = useContext(GoTContext);
+  const { fireIce } = useContext(GoTContext);
   return fireIce;
 };
 
