@@ -1,11 +1,15 @@
 import React from 'react';
-import styles from '../App/App.css';
+import { useToggle } from '../../hooks/GoTProvider';
 
-const Header = () => (
-  <header>
-    <h1>Game of Thrones Characters</h1>
-    <input type="checkbox" value="" />
-  </header>
-);
+const Header = () => {
+  const toggle = useToggle();
+  return (
+    <header>
+      <h1>Game of Thrones Characters</h1>
+      <input type="checkbox" id="toggle" onChange={toggle} />
+      <label htmlFor="toggle">Fire/Ice</label>
+    </header>
+  );
+};
 
 export default Header;
