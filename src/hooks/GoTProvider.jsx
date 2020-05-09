@@ -20,7 +20,6 @@ export const GoTProvider = ({ children }) => {
   const toggle = ({ target }) => {
     if(target.checked) setFireIce('fire');
     if(!target.checked) setFireIce('ice');
-
   };
 
   return (

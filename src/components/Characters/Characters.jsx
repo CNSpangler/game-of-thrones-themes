@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Character from '../Character/Character';
-import { useCharacters, useUpdatePage, usePage } from '../../../hooks/GoTProvider';
+import { useCharacters, useUpdatePage, usePage } from '../../hooks/GoTProvider';
 
 const Characters = () => {
   const characters = useCharacters();
