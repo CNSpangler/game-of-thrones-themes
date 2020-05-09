@@ -10,7 +10,7 @@ const Character = ({ name = 'unknown', culture, titles, aliases }) => {
     <>
       {name ? <h3>Name: {name}</h3> : <h3>{aliases[0]}</h3>}
       {culture !== '' && <h4>Culture: {culture}</h4>}
-      {titles && <h4>Title: {titles[0]}</h4>}
+      {titles[0] && <h4>Title: {titles[0]}</h4>}
       {aliases.length > 1 && <ul>Aliases: {aliasElements}</ul>}
     </>
   );};
