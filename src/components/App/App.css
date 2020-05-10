@@ -1,8 +1,19 @@
-  .fire {
-    background-color: red;
-  }
+html, body, h1 .Header, #toggle {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  margin: 0;
+}
 
-  .ice {
-    background: blue;
-  }
+.card {
+  width: 50vw;
+}
+
+.fire {
+  background-color: red;
+}
+
+.ice {
+  background: blue;
+}
 
